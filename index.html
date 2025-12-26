@@ -163,14 +163,32 @@
         <p>Experience Scitrack features without creating an account</p>
       </section>
     </div>
-
-    <script src="app.js"></script>
-  </body>
-  <!-- Firebase SDKs -->
+    <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+
+<script>
+ const firebaseConfig = {
+  apiKey: "AIzaSyABOSSsDjdlwZuERly4HW5uAXo-rs3Cb4I",
+  authDomain: "scitrack-b8852.firebaseapp.com",
+  projectId: "scitrack-b8852",
+  storageBucket: "scitrack-b8852.firebasestorage.app",
+  messagingSenderId: "226667633040",
+  appId: "1:226667633040:web:d921381173d4aa198b7b15",
+  measurementId: "G-HJ5DZQWSV0"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+
+
+    <script src="app.js"></script>
+  </body>
 
 </html>
+
 
