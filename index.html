@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scitrack</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="appContainer">
+      <div id="mobileTopBar">
+        <div class="signal">
+          <i class="fa-solid fa-signal"></i>
+        </div>
+        <div class="time">12:00</div>
+        <div class="battery">
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </div>
+
+      <div id="backIcon" onclick="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+
+      <section id="splash" class="screen active splash">
+        <div class="logo-spin">⚗️</div>
+        <h1>Scitrack</h1>
+        <p>Track, Compete & Excel in Science!</p>
+      </section>
+
+      <section id="account" class="screen">
+        <h2>Welcome to Scitrack</h2>
+        <p class="account-subtitle">Choose your entry point</p>
+        <div class="account-buttons">
+          <button id="memberBtn">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>
+              Member Login<br />
+              <small>Access your progress & quizzes</small>
+            </span>
+          </button>
+          <button id="registerBtn">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>
+              New Member<br />
+              <small>Join our science community</small>
+            </span>
+          </button>
+          <button id="leaderBtn">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>
+              Club Leader<br />
+              <small>Manage quizzes & projects</small>
+            </span>
+          </button>
+          <button id="demoBtn">
+            <i class="fa-solid fa-flask-vial"></i>
+            <span>
+              Try Demo<br />
+              <small>Explore without account</small>
+            </span>
+          </button>
+        </div>
+        <div class="account-footer">
+          <p>⚗️ Track • 🔬 Compete • 🧪 Excel</p>
+        </div>
+      </section>
+
+      <section id="memberLogin" class="screen">
+        <h2>Member Login</h2>
+        <input id="memberNumber" placeholder="Student Number" />
+        <input id="memberPin" type="password" placeholder="PIN" />
+        <button id="memberLoginBtn">
+          <i class="fa-solid fa-right-to-bracket"></i> Login
+        </button>
+      </section>
+
+      <section id="register" class="screen">
+        <h2>New Member Registration</h2>
+        <input id="newMemberNumber" placeholder="Student Number" />
+        <input id="newMemberName" placeholder="Full Name" />
+        <input id="newMemberPin" type="password" placeholder="Create PIN" />
+        <button id="registerMemberBtn">
+          <i class="fa-solid fa-user-plus"></i> Register
+        </button>
+      </section>
+
+      <section id="memberDashboard" class="screen">
+        <h2>Member Dashboard</h2>
+        <div class="dashboard-cards">
+          <button id="quizBtn"><i class="fa-solid fa-brain"></i> Take Quiz</button>
+          <button id="projectBtn"><i class="fa-solid fa-flask"></i> Submit Project</button>
+          <button id="leaderboardBtn"><i class="fa-solid fa-trophy"></i> Leaderboard</button>
+          <button id="profileBtn"><i class="fa-solid fa-user-pen"></i> Profile</button>
+        </div>
+        <button id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </section>
+
+      <section id="profile" class="screen">
+        <h2>Profile</h2>
+        <img id="profilePic" src="https://via.placeholder.com/80" alt="Profile Picture" />
+        <input id="profileName" placeholder="Full Name" />
+        <button id="saveProfileBtn"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
+      </section>
+
+      <section id="quizCategories" class="screen">
+        <h2>Quiz Categories</h2>
+        <div class="quiz-buttons">
+          <button id="physicsBtn"><i class="fa-solid fa-atom"></i> Physics</button>
+          <button id="chemistryBtn"><i class="fa-solid fa-vial"></i> Chemistry</button>
+          <button id="biologyBtn"><i class="fa-solid fa-dna"></i> Biology</button>
+        </div>
+      </section>
+
+      <section id="quiz" class="screen">
+        <h3 id="question"></h3>
+        <div id="options"></div>
+        <div id="quizProgressBar">
+          <div id="quizProgress"></div>
+        </div>
+      </section>
+
+      <section id="projectSubmit" class="screen">
+        <h2>Submit Project</h2>
+        <input id="projectTitle" placeholder="Project Title" />
+        <textarea id="projectDesc" placeholder="Description & Findings"></textarea>
+        <textarea id="projectReflection" placeholder="Reflection"></textarea>
+        <input id="projectFile" type="file" />
+        <button id="submitProjectBtn"><i class="fa-solid fa-upload"></i> Submit</button>
+      </section>
+
+      <section id="leaderLogin" class="screen">
+        <h2>Leader Login</h2>
+        <input id="leaderPin" type="password" placeholder="Leader PIN" />
+        <button id="leaderLoginBtn">
+          <i class="fa-solid fa-right-to-bracket"></i> Login
+        </button>
+      </section>
+
+      <section id="leaderDashboard" class="screen">
+        <h2>Leader Dashboard</h2>
+        <div class="dashboard-cards">
+          <button id="manageQuizBtn"><i class="fa-solid fa-pen-to-square"></i> Manage Quizzes</button>
+          <button id="reviewProjectsBtn"><i class="fa-solid fa-folder-open"></i> Review Projects</button>
+          <button id="leaderboardBtn2"><i class="fa-solid fa-trophy"></i> Leaderboard</button>
+        </div>
+        <button id="logoutBtn2"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </section>
+
+      <section id="leaderboard" class="screen">
+        <h2>Leaderboard</h2>
+        <div id="leaderboardList"></div>
+      </section>
+
+      <section id="demoMode" class="screen">
+        <h2>Demo Mode</h2>
+        <p>Experience Scitrack features without creating an account</p>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

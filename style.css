@@ -1,0 +1,270 @@
+/* General Reset & Container */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#appContainer {
+  width: 360px;
+  height: 640px;
+  background: linear-gradient(180deg, #3b6df6, #7b4ae2, #ff9f1c);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top Bar */
+#mobileTopBar {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 12px;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Back Icon */
+#backIcon {
+  position: absolute;
+  top: 35px;
+  left: 10px;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  display: none;
+  z-index: 100;
+}
+
+/* Screen */
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.screen.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* Splash */
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.logo-spin {
+  font-size: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.splash h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #ff9f1c, #ff6b81);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.splash p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Buttons */
+button {
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  display: block;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  background: linear-gradient(to right, #6b5bff, #ff6b81);
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+button.link {
+  background: none;
+  color: white;
+  text-decoration: underline;
+  width: auto;
+  margin: 5px;
+}
+
+/* Inputs */
+input,
+textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 5px auto;
+  display: block;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Account selection */
+.account-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.account-buttons button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 15px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.account-buttons button i {
+  font-size: 26px;
+  width: 40px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.account-buttons button span small {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+
+/* Dashboard */
+.dashboard-cards button {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Leaderboard */
+#leaderboardList {
+  margin-top: 20px;
+}
+
+.leaderboard-item {
+  padding: 8px;
+  border-radius: 10px;
+  margin: 4px 0;
+  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  color: white;
+  font-weight: bold;
+}
+
+.leaderboard-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(34, 197, 94, 0.6);
+  z-index: -1;
+  width: 0;
+  border-radius: 10px;
+  transition: width 0.8s ease;
+}
+
+.leaderboard-item.top1 .leaderboard-bar {
+  background: gold;
+}
+
+.leaderboard-item.top2 .leaderboard-bar {
+  background: silver;
+}
+
+.leaderboard-item.top3 .leaderboard-bar {
+  background: #cd7f32;
+  color: white;
+}
+
+/* Quiz Progress */
+#quizProgressBar {
+  width: 90%;
+  height: 12px;
+  background: #ccc;
+  border-radius: 6px;
+  margin: 10px auto;
+}
+
+#quizProgress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(to right, #22c55e, #16a34a);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+/* Splash floating emojis */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
